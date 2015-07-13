@@ -24,8 +24,7 @@ var four32 = {
       
       // Stop if is playing
       if( _this.isPlaying ) {
-        _this.sourceNode.stop(0);  
-        _this.isPlaying = 0;
+        _this.stop();
       }
       
       // Create a sound source
@@ -60,6 +59,7 @@ var four32 = {
         request.onload = function() {
           _this.audioContext.decodeAudioData(request.response, function(buffer) {
             _this.soundBuffer = buffer;
+            _this.sourceNode.buffer = _this.soundBuffer;                    // tell the source which sound to play
             _this.play();
           }, function(err) {
             console.log(err);
@@ -87,13 +87,16 @@ var four32 = {
   },
   play: function() {
     var _this = this;
-
-    _this.sourceNode.buffer = _this.soundBuffer;                    // tell the source which sound to play
-    if( !_this.isPlaying ) {
-      _this.sourceNode.start(0);  
-      _this.isPlaying = true;
-    }
+    
+    _this.sourceNode.start(0);  
+    _this.isPlaying = true;
   },
+  stop: function() {
+    var _this = this;
+
+    _this.sourceNode.stop(0);  
+    _this.isPlaying = 0;
+  }
 };
 
 $(document).ready(function () {
