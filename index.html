@@ -35,6 +35,10 @@ nope: "js/polyfills/mediaqueries.js"
     </script>
 
     <link rel='stylesheet' id='site-css'  href='css/site.css' type='text/css' media='all' />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
   </head>
   <body class="">
     <!--[if lt IE 7]><p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p><![endif]-->
@@ -47,6 +51,28 @@ nope: "js/polyfills/mediaqueries.js"
 
       <!-- main content -->
       <main id="main-content" class="container">
+        <div class="audio-form">
+          <div class="row">
+            <div class="input-field col s6">
+              <input placeholder="Ex. https://soundcloud.com/teehnbwitches/la-minitk-del-miedo-yo-soy-la" id="track-url" type="text" class="validate">
+              <label for="track-url">Soundcloud track URL</label>
+            </div>
+            <div class="input-field col s3">
+              <!-- Switch -->
+              <div class="switch">
+                <label>
+                  440Hz
+                  <input id="tuning-switch" type="checkbox" checked="true">
+                  <span class="lever"></span>
+                  432Hz
+                </label>
+              </div>
+            </div>
+            <div class="input-field col s3">
+                <a id="play-button" class="btn-floating btn-large waves-effect waves-light red"><i class="material-icons">play_arrow</i></a>
+
+
+            </div>
       </main>
 
       <footer id="footer" class="container">
